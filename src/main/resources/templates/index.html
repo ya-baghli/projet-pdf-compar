@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PDF Compare - Local Tool</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">Comparateur de PDF - Interface Locale</h4>
+                    </div>
+                    <div class="card-body">
+                        
+                        <!-- Message d'alerte après traitement -->
+                        <div th:if="${message}" th:class="${success} ? 'alert alert-success' : 'alert alert-danger'" role="alert">
+                            <span th:text="${message}"></span>
+                        </div>
+
+                        <!-- Formulaire -->
+                        <form action="/compare" method="post">
+                            <div class="mb-3">
+                                <label for="refDir" class="form-label">Chemin du Dossier de Référence :</label>
+                                <input type="text" class="form-control" id="refDir" name="refDir" placeholder="C:/.../Dossier_Reference" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="testDir" class="form-label">Chemin du Dossier Test :</label>
+                                <input type="text" class="form-control" id="testDir" name="testDir" placeholder="C:/.../Dossier_Test" required>
+                            </div>
+                            <button type="submit" class="btn btn-success w-100">Lancer la Comparaison</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
