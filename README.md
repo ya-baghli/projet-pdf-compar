@@ -56,8 +56,8 @@ Actuellement, ces vérifications reposent en partie sur des contrôles visuels m
 
 ## Stack Technique & Prérequis
 
-* **Langage :** *(ex: Python 3.10+ / Node.js / Java)*
-* **Bibliothèques PDF :** *(ex: PyPDF2, pdfplumber, Poppler, PDF.js)*
+* **Langage :** *Java, Spring boot, Spring Security*
+* **Bibliothèques PDF :** *???*
 * **Gestion de Projet :** Suivi des tâches et du Backlog via **GitHub Projects** & **GitHub Issues**.
 
 ---------------------------------------
