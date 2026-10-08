@@ -1,4 +1,4 @@
-# projet-pdf-compar
+# Projet-pdf-compar
 application de comparaison de pdf
 
 Le problème : Automatiser les tests de comparaisons PDF lors des TNRS 
