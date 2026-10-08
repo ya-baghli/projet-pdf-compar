@@ -57,7 +57,7 @@ Actuellement, ces vérifications reposent en partie sur des contrôles visuels m
 ## Stack Technique & Prérequis
 
 * **Langage :** *Java, Spring boot, Spring Security*
-* **Bibliothèques PDF :** *???*
+* **Bibliothèques PDF :** *Apache PDFBox 3.0.1 & tess4j*
 * **Gestion de Projet :** Suivi des tâches et du Backlog via **GitHub Projects** & **GitHub Issues**.
 
 ---------------------------------------
