@@ -1,63 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <!-- Déclaration du parent Spring Boot (gère automatiquement les versions) -->
+    
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.2</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>3.3.0</version>
+        <relativePath/>
     </parent>
 
-    <groupId>com.pdfcompare</groupId>
-    <artifactId>pdf-compare-tool</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>com.pdfcomparator</groupId>
+	<artifactId>pdf-comparator</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>pdf-comparator</name>
+    <description>Application de comparaison de fichiers PDF</description>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>21</java.version>
+        <pdfbox.version>3.0.2</pdfbox.version>
+        <spring-shell.version>3.3.0</spring-shell.version>
+        <java-diff-utils.version>4.12</java-diff-utils.version>
     </properties>
 
     <dependencies>
-        <!-- Spring Boot Web (plus besoin de préciser <version>) -->
+        <!-- Spring Boot Starter de base -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
-
-        <!-- Thymeleaf pour les templates HTML -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        <!-- Spring Shell pour la partie CLI interactive -->
+		<dependency>			
+            <groupId>org.springframework.shell</groupId>
+            <artifactId>spring-shell-starter</artifactId>
+            <version>3.3.0</version>
         </dependency>
+        <!-- Spring Web pour la partie web interactive -->
+		<dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 
-        <!-- Apache PDFBox 3.x -->
+        <!-- Apache PDFBox pour la manipulation des PDF -->
         <dependency>
             <groupId>org.apache.pdfbox</groupId>
             <artifactId>pdfbox</artifactId>
-            <version>3.0.1</version>
+            <version>${pdfbox.version}</version>
         </dependency>
 
-        <!-- Tess4J (optionnel) -->
+        <!-- Lombok pour réduire le boilerplate code -->
         <dependency>
-            <groupId>net.sourceforge.tess4j</groupId>
-            <artifactId>tess4j</artifactId>
-            <version>5.8.0</version>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
+
+        <!-- Tests -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+      		<groupId>io.github.java-diff-utils</groupId>
+      		<artifactId>java-diff-utils</artifactId>
+      		<version>${java-diff-utils.version}</version>
+  		</dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Plugin indispensable pour packager et lancer l'application Spring Boot -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>

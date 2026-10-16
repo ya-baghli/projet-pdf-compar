@@ -1,4 +1,4 @@
-package com.pdfcompare.modules;
+package com.pdfcompare.service.checker;
 
 import java.io.File;
 import java.io.IOException;
